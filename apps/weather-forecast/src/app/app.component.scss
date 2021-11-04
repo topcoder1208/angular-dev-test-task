@@ -1,0 +1,36 @@
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header {
+	background-color: #143055;
+	color: white;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+main {
+	padding: 0 36px;
+}
+
+table {
+	width: 100%;
+	border-top: double;
+	border-bottom: double;
+	border-right: blank;
+	td {
+		border: thin single black collapse;
+	}
+}
+
+.toolbar {
+	padding: 10px;
+	span,
+	button,
+	input,
+	select {
+		margin-left: 20px;
+	}
+}

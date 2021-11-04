@@ -1,0 +1,62 @@
+<header class="flex">
+	<h1>Welcome to {{ title }}!</h1>
+</header>
+
+<div class="flex toolbar">
+	<span>Type:</span>
+	<select name="type" [(ngModel)]="type" (change)="search()">
+		<option value="hourly">Hourly</option>
+		<option value="daily">Daily</option>
+	</select>
+	<span>Search</span>
+	<input name="city" type="text" [(ngModel)]="city" />
+	<button (click)="search()">Search</button>
+</div>
+<table *ngIf="type == 'hourly'">
+	<thead>
+		<tr>
+			<th>Temp</th>
+			<th>Feels Like</th>
+			<th>Pressure</th>
+			<th>Humidity</th>
+			<th>Dew Point</th>
+			<th>Uvi</th>
+			<th>Clouds</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let w of weather.hourly">
+			<td>{{ w.temp }}</td>
+			<td>{{ w.feels_like }}</td>
+			<td>{{ w.pressure }}</td>
+			<td>{{ w.humidity }}</td>
+			<td>{{ w.dew_point }}</td>
+			<td>{{ w.uvi }}</td>
+			<td>{{ w.clouds }}</td>
+		</tr>
+	</tbody>
+</table>
+<table *ngIf="type == 'daily'">
+	<thead>
+		<tr>
+			<th>Sunrise</th>
+			<th>Sunset</th>
+			<th>Moonrise</th>
+			<th>Moonset</th>
+			<th>Moon Phase</th>
+			<th>Pressure</th>
+			<th>Humidity</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let w of weather.daily">
+			<td>{{ w.sunrise }}</td>
+			<td>{{ w.sunset }}</td>
+			<td>{{ w.moonrise }}</td>
+			<td>{{ w.moonset }}</td>
+			<td>{{ w.moon_phase }}</td>
+			<td>{{ w.pressure }}</td>
+			<td>{{ w.humidity }}</td>
+		</tr>
+	</tbody>
+</table>
